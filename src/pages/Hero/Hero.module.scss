@@ -35,6 +35,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 50;
 }
 
 .cargo {
@@ -42,6 +43,8 @@
   /* Estiliza o texto que descreve o cargo */
   color: $amareloEscuro;
   margin-bottom: 0.5rem;
+  font-size: 0.7rem;
+  z-index: 50;
 }
 
 /* Define a tipografia do nome principal */
@@ -50,6 +53,7 @@
   color: $branco;
   font-weight: 700;
   text-align: center;
+  z-index: 50;
 }
 
 /* Modela o botão de contato do WhatsApp */
@@ -68,6 +72,7 @@
   margin-top: 2rem;
   text-decoration: none;
   transition: 0.3s ease;
+  z-index: 9999;
 
   /* Executa a transição de elevação ao passar o mouse */
   &:hover {
@@ -103,7 +108,7 @@
     }
 
     .cargo {
-      font-size: 2rem;
+      font-size: 1.3rem;
       margin-bottom: 0.5rem;
     }
 
@@ -152,7 +157,7 @@
 
     /* Aumenta a tipografia de apresentação */
     .cargo {
-      font-size: 2.5rem;
+      font-size: 1.5rem;
     }
 
     .nome {
@@ -198,7 +203,7 @@
 
     /* Aumenta a tipografia de apresentação */
     .cargo {
-      font-size: 2.5rem;
+      font-size: 1.5rem;
     }
 
     .nome {

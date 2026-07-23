@@ -31,6 +31,7 @@
     font-weight: 900;
     cursor: pointer;
     text-decoration: none;
+    z-index: 9999;
   }
 
   /* Configura o indicador de pulso verde */
@@ -72,6 +73,7 @@
     color: $bgPrincipal;
     text-decoration: none;
     transition: 0.3s ease;
+    z-index: 9999;
 
     /* Aplica efeito de elevação e mudança de cor ao passar o mouse */
     &:hover {

@@ -28,7 +28,7 @@ export default function Hero() {
 
         {/* Identifica o cargo atual do profissional */}
         <section className={Styles.textoCargo}>
-          <h3 className={Styles.cargo}>Analista de Dados</h3>
+          <h3 className={Styles.cargo}>Analista de Business Intelligence (BI)</h3>
 
           {/* Destaca o nome principal da página */}
           <h1 id="titulo-nome" className={Styles.nome}>

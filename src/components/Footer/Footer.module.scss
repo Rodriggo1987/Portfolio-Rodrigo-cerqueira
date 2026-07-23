@@ -24,8 +24,8 @@
   background: rgba(248, 224, 3, 0.4);
 
   /* 2. Aumenta o raio do desfoque (de 0.75rem para 1.2rem) para borrar mais os itens que passam por trás */
-  backdrop-filter: blur(1.2rem);
-  -webkit-backdrop-filter: blur(1.2rem); // Garante compatibilidade com Safari
+  backdrop-filter: blur(2rem);
+  -webkit-backdrop-filter: blur(2rem); // Garante compatibilidade com Safari
 
   /* 3. Dica de Ouro do Glassmorphism: Borda sutil para definir as bordas do "vidro" */
   border: 1px solid rgba(248, 224, 3, 0.3);
