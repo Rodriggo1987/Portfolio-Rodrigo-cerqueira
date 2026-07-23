@@ -1,0 +1,218 @@
+@use "../../Styles/variaveis.scss" as *;
+
+/* =========================================================================
+   Mobile First - Estilos Gerais da Página de Hero.jsx
+   ========================================================================= */
+
+/* Estrutura o contêiner principal da página inicial */
+.mainHero {
+  background-color: $bgPrincipal;
+  height: 90dvh;
+  padding: 2rem 1rem 1rem 1rem;
+  z-index: 1;
+
+  /* Centraliza o conteúdo interno da seção */
+  .conteudoHero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+
+    /* Formata a imagem de perfil e limita seu tamanho máximo */
+    .FotoPerfil {
+      width: 70%;
+      max-width: 250px;
+      border-radius: 100%;
+      box-shadow: 0.2rem 0 0.2rem 0.2rem rgb(250, 225, 1);
+      margin-bottom: 2rem;
+      z-index: 50;
+    }
+  }
+}
+
+.textoCargo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cargo {
+  font-family: $fonteSecundaria;
+  /* Estiliza o texto que descreve o cargo */
+  color: $amareloEscuro;
+  margin-bottom: 0.5rem;
+}
+
+/* Define a tipografia do nome principal */
+.nome {
+  font-family: $fontePrincipal;
+  color: $branco;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Modela o botão de contato do WhatsApp */
+.whatsapp {
+  width: 80%;
+  max-width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: $amareloEscuro;
+  padding: 0.8rem 2rem;
+  border-radius: 2rem;
+  font-family: $fonteSecundaria;
+  font-weight: 600;
+  color: $bgPrincipal;
+  margin-top: 2rem;
+  text-decoration: none;
+  transition: 0.3s ease;
+
+  /* Executa a transição de elevação ao passar o mouse */
+  &:hover {
+    background: $amareloClaro;
+    transform: translateY(-2px);
+  }
+
+  /* Ajusta o tamanho e espaçamento do ícone interno */
+  .iconeWhatsapp {
+    font-size: 2rem;
+    margin-right: 0.2rem;
+  }
+}
+
+/* =========================================================================
+   Responsividade Tablet - Estilos Gerais da Página de Hero.jsx
+   ========================================================================= */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Adapta as proporções para visualização em tablets */
+  .mainHero {
+    height: 90dvh;
+    padding: 1rem 1rem 2rem 1rem;
+
+    .conteudoHero {
+      height: 75vh;
+
+      /* Reduz o impacto percentual da foto */
+      .FotoPerfil {
+        width: 70%;
+        max-width: 900px;
+      }
+    }
+
+    .cargo {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .nome {
+      font-size: 3.5rem;
+    }
+  }
+
+  .whatsapp {
+    width: 90%;
+    max-width: 440px;
+    padding: 1.3rem 2rem;
+    font-size: 1.5rem;
+    border-radius: 5rem;
+
+    .iconeWhatsapp {
+      font-size: 3rem;
+      margin-right: 0.2rem;
+    }
+  }
+}
+
+/* =========================================================================
+   Responsividade Laptop/Notebook
+   ========================================================================= */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  /* Adapta o layout para telas de tamanho médio */
+  .mainHero {
+    height: 90vh; /* Utiliza a tela inteira em computadores */
+    padding: 2rem;
+
+    .conteudoHero {
+      height: 80vh;
+      flex-direction: row;
+
+      /* Mantém a foto proporcional em monitores maiores */
+      .FotoPerfil {
+        width: 50%;
+        max-width: 450px;
+      }
+    }
+  }
+
+  .textoCargo {
+    padding: 0 2rem;
+
+    /* Aumenta a tipografia de apresentação */
+    .cargo {
+      font-size: 2.5rem;
+    }
+
+    .nome {
+      font-size: 4rem;
+    }
+  }
+
+  /* Ajusta o botão para não ocupar muita largura horizontal */
+  .whatsapp {
+    width: 60%;
+    max-width: 350px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 1.5rem 1rem;
+    border-radius: 3rem;
+  }
+}
+
+/* =========================================================================
+   Responsividade para tela de Desktops
+   ========================================================================= */
+@media (min-width: 1440px) {
+  /* Maximiza as fontes e margens para monitores grandes e ultrawide */
+  .mainHero {
+    height: 90vh; /* Utiliza a tela inteira em computadores */
+    padding: 2rem;
+
+    .conteudoHero {
+      height: 75vh;
+      flex-direction: row;
+      padding: 2rem 1rem 3rem 1rem;
+
+      /* Mantém a foto proporcional em monitores maiores */
+      .FotoPerfil {
+        width: 100%;
+        max-width: 500px;
+      }
+    }
+  }
+
+  .textoCargo {
+    padding: 0 2rem;
+
+    /* Aumenta a tipografia de apresentação */
+    .cargo {
+      font-size: 2.5rem;
+    }
+
+    .nome {
+      font-size: 4rem;
+    }
+  }
+
+  /* Ajusta o botão para não ocupar muita largura horizontal */
+  .whatsapp {
+    width: 60%;
+    max-width: 350px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 1.5rem 1rem;
+    border-radius: 3rem;
+  }
+}

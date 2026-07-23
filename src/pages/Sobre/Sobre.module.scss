@@ -1,0 +1,206 @@
+@use "../../Styles/variaveis.scss" as *;
+
+/* =========================================================================
+   Mobile First - Estilos Gerais da Página de Sobre.jsx
+   ========================================================================= */
+
+/* Estrutura o fundo e as margens da página Sobre */
+.mainSobre {
+  background-color: $bgPrincipal;
+  min-height: 100dvh;
+  padding: 1rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Agrupa o conteúdo e garante que fique acima da animação de fundo (z-index) */
+.conteudoSobre {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto 5rem auto;
+
+  /* Alinha os blocos de imagem e texto verticalmente em telas menores */
+  .boxSobre {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    color: $branco;
+    gap: 2rem;
+  }
+}
+
+/* Envolve a imagem para facilitar o controle de flexibilidade e posicionamento */
+.boxImagem {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Formata a imagem de perfil e limita o crescimento desproporcional */
+.fotoSobre {
+  width: 70%;
+  max-width: 300px;
+  border-radius: 100%;
+  box-shadow: 0.2rem 0 0.2rem 0.2rem rgb(250, 225, 1);
+}
+
+/* Estiliza o contêiner de texto biográfico */
+.boxTexto {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+
+  /* Define a tipografia do título da seção */
+  .boxTitulo {
+    font-family: $fontePrincipal;
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+  }
+
+  /* Formata os parágrafos de texto */
+  p {
+    font-family: $fonteSecundaria;
+    font-size: 0.95rem;
+    margin: 0;
+    line-height: 1.7;
+    text-align: center;
+  }
+}
+
+/* Aplica a cor de ênfase e o peso visual aos textos destacados */
+.destaque {
+  font-weight: 700;
+  color: $amareloEscuro;
+}
+
+/* =========================================================================
+   Responsividade Tablet - Estilos Gerais da Página de Sobre.jsx
+   ========================================================================= */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Adapta o espaçamento geral para telas médias */
+  .mainSobre {
+    padding: 2rem;
+  }
+
+  .conteudoSobre {
+    padding: 2rem;
+
+    .boxSobre {
+      padding: 1.5rem;
+    }
+  }
+
+  /* Reduz proporcionalmente o impacto da imagem */
+  .fotoSobre {
+    width: 60%;
+    max-width: 350px;
+  }
+
+  /* Amplia as fontes para facilitar a leitura no tablet */
+  .boxTexto {
+    .boxTitulo {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+/* =========================================================================
+   Responsividade Laptop/Notebook
+   ========================================================================= */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  /* Altera o layout para dispor imagem e texto lado a lado (horizontal) */
+  .conteudoSobre {
+    padding: 0 2rem;
+    
+    .boxSobre {
+      flex-direction: row;
+      text-align: left;
+      gap: 4rem;
+    }
+  }
+
+  /* Define o espaço ocupado pela coluna da imagem */
+  .boxImagem {
+    width: 40%;
+  }
+
+  .fotoSobre {
+    width: 120%;
+    max-width: 750px;
+  }
+
+  /* Define o espaço e o tamanho da fonte da coluna de texto */
+  .boxTexto {
+    width: 60%;
+
+    .boxTitulo {
+      font-size: 3rem;
+      text-align: center;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.2;
+      text-align: center;
+      
+    }
+  }
+}
+
+/* =========================================================================
+   Responsividade para tela de Desktops
+   ========================================================================= */
+@media (min-width: 1440px) {
+  /* Maximiza os espaçamentos e fontes para monitores ultrawide e TVs */
+  .conteudoSobre {
+    padding: 0 2rem;
+    
+    .boxSobre {
+      flex-direction: row;
+      text-align: left;
+      gap: 4rem;
+      padding: 2rem 1rem 3rem 1rem;
+    }
+  }
+
+  /* Define o espaço ocupado pela coluna da imagem */
+  .boxImagem {
+    width: 40%;
+    
+  }
+
+  .fotoSobre {
+    width: 120%;
+    max-width: 750px;
+  }
+
+  /* Define o espaço e o tamanho da fonte da coluna de texto */
+  .boxTexto {
+    width: 60%;
+
+    .boxTitulo {
+      font-size: 3rem;
+      text-align: center;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.2;
+      text-align: center;
+      
+    }
+  }
+}

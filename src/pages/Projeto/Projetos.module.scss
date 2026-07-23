@@ -1,0 +1,270 @@
+@use "../../Styles/variaveis.scss" as *;
+
+/* =========================================================================
+   Mobile First - Estilos Gerais da Página de Projetos.jsx
+   ========================================================================= */
+
+/* Estrutura o contêiner principal para abranger a altura da tela */
+.secao {
+  background-color: $bgPrincipal;
+  min-height: 100dvh;
+  position: relative;
+  padding: 3rem 1rem 6rem 1rem; // Garante respiro no topo e na base
+}
+
+/* Protege o conteúdo para que a animação de fundo fique atrás */
+.conteudoZIndex {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Formata o título principal da seção */
+.secaoTitle {
+  font-family: $fontePrincipal;
+  color: $branco;
+  margin-bottom: 2rem;
+  text-align: center;
+
+  .title {
+    font-size: 2.2rem;
+
+    .destaqueProjetos {
+      color: $amareloEscuro;
+    }
+  }
+}
+
+/* Configura a exibição de cartões utilizando CSS Grid para fluidez automática */
+.projetosGrid {
+  display: grid;
+  grid-template-columns: 1fr; // No mobile, exibe uma coluna única
+  gap: 2rem;
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+/* Modela o cartão flexível removendo a dependência de alturas fixas */
+.projetoCard {
+  display: flex;
+  flex-direction: column;
+  background-color: $bgNav;
+  border-radius: 0.7rem;
+  overflow: hidden;
+  box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.2);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  padding-bottom: 1rem;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.8rem 1.5rem rgba(248, 191, 2, 0.15);
+  }
+
+  /* Define uma altura fixa apenas para a imagem para manter o padrão visual */
+  .projetoImg {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+}
+
+/* Organiza o conteúdo textual forçando o preenchimento flexível do cartão */
+.projetoConteudo {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 1.5rem;
+}
+
+/* Garante que o texto empurre o botão sempre para a parte inferior do cartão */
+.divConteudo {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Define a tipografia do título do projeto */
+.projetoTitle {
+  font-family: $fontePrincipal;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: $amareloEscuro;
+  margin-bottom: 0.8rem;
+  text-align: center;
+}
+
+/* Define a tipografia descritiva normalizando tamanhos de fonte legíveis */
+.projetoText {
+  font-family: $fonteSecundaria;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: $branco;
+  margin-bottom: 1.2rem;
+  text-align: justify;
+}
+
+/* Dispõe as marcações de tecnologia em formato de botões alinhados */
+.projetoTags {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0;
+  margin-bottom: 1.5rem;
+  list-style: none;
+}
+
+.projetoTag {
+  font-family: $fonteSecundaria;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: $bgPrincipal;
+  background-color: $branco;
+}
+
+/* Centraliza e estiliza o botão de acesso ao código fonte */
+.DivProjetoButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto; // Força o botão para a extremidade inferior
+
+  .projetoButton {
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.5rem;
+    font-family: $fonteSecundaria;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: $bgPrincipal;
+    background-color: $amareloEscuro;
+    transition: 0.3s ease;
+
+    &:hover {
+      background: $amareloClaro;
+    }
+  }
+}
+
+/* =========================================================================
+   Responsividade Tablet - Estilos Gerais da Página de Projetos.jsx
+   ========================================================================= */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .secaoTitle {
+    .title {
+      font-size: 3rem;
+    }
+  }
+
+  /* Exibe os projetos em duas colunas automáticas para a tela do tablet */
+  .projetosGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin: 2rem 0 7rem 0;
+  }
+
+  .projetoCard {
+    padding-bottom: 2rem;
+    .projetoImg {
+      height: 200px;
+    }
+  }
+
+  .projetoTitle {
+    font-size: 1.3rem;
+  }
+
+  .projetoText {
+    font-size: 0.95rem;
+  }
+
+  .projetoTag {
+    font-size: 0.8rem;
+  }
+}
+
+/* =========================================================================
+   Responsividade Laptop/Notebook
+   ========================================================================= */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .secaoTitle {
+    padding: 1rem;
+    .title {
+      font-size: 3.5rem;
+    }
+  }
+
+  /* Organiza os projetos em três colunas simultâneas */
+  .projetosGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    padding: 2.5rem 2rem;
+  }
+
+  .projetoCard {
+    .projetoImg {
+      height: 180px;
+    }
+  }
+
+  .projetoTitle {
+    font-size: 1.4rem;
+  }
+
+  .projetoText{
+    text-align: center;
+  }
+
+  .projetoButton {
+    font-size: 1rem;
+    padding: 0.7rem 1.5rem;
+  }
+}
+
+/* =========================================================================
+   Responsividade para tela de Desktops
+   ========================================================================= */
+@media (min-width: 1440px) {
+  .secaoTitle {
+    padding: 1rem;
+    .title {
+      font-size: 3.5rem;
+    }
+  }
+
+  /* Organiza os projetos em três colunas simultâneas */
+  .projetosGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    padding: 2.5rem 2rem;
+  }
+
+  .projetoCard {
+    .projetoImg {
+      height: 180px;
+    }
+  }
+
+  .projetoTitle {
+    font-size: 1.4rem;
+  }
+
+  .projetoText{
+    text-align: center;
+  }
+
+  .projetoButton {
+    font-size: 1rem;
+    padding: 0.7rem 1.5rem;
+  }
+}

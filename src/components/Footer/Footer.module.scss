@@ -1,0 +1,144 @@
+// Importa o arquivo de variáveis do projeto
+@use "../../Styles/variaveis.scss" as *;
+
+/* =========================================================================
+   Mobile First - Estilos Gerais do Footer/NavBar
+   ========================================================================= */
+
+/* Estiliza a barra de navegação com o efeito de vidro transparente/esfumado */
+.footerNav {
+  position: fixed;
+  left: 50%;
+  bottom: 1.5rem; // 24px
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.75rem 1rem;
+  border-radius: 999rem;
+
+  /* Aplica o fundo semi-transparente e o desfoque característico do glassmorphism */
+  background: rgba(248, 224, 3, 0.178);
+  backdrop-filter: blur(0.75rem);
+  -webkit-backdrop-filter: blur(0.75rem); // Garante compatibilidade com Safari
+
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.25);
+  z-index: 999;
+
+  /* Organiza os itens da lista internamente */
+  .listNav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: max-content;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  /* Formata o tamanho, formato e transição dos botões */
+  .itemNav {
+    width: 2.75rem;
+    height: 2.75rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    color: $branco;
+    font-family: $fonteSecundaria;
+    font-size: 1.2rem;
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+
+    /* Executa o efeito de elevação e troca de cor ao passar o mouse */
+    &:hover {
+      background-color: $amareloEscuro;
+      color: $preta;
+      transform: translateY(-0.2rem);
+    }
+  }
+
+  /* Define o visual para o link correspondente à página atual */
+  .active {
+    background-color: $amareloEscuro;
+    color: $preta;
+  }
+}
+
+/* =========================================================================
+   Responsividade Tablet - Estilos Gerais da Página de Footer.jsx
+   ========================================================================= */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Adapta o contêiner e o espaçamento interno para telas médias */
+  .footerNav {
+    bottom: 1.5rem; 
+    margin-bottom: 0.5rem;
+    padding: 1.5rem 3rem;
+
+    /* Aumenta a distância entre os ícones */
+    .listNav {
+      gap: 0.8rem;
+    }
+
+    /* Aumenta a área de clique e o tamanho dos ícones */
+    .itemNav {
+      width: 4rem;
+      height: 4rem;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+/* =========================================================================
+   Responsividade Laptop/Notebook
+   ========================================================================= */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  /* Refina o espaçamento e as dimensões para telas de notebooks */
+  .footerNav {
+    bottom: 2rem;
+    padding: 0.5rem 3.5rem;
+    
+    .listNav {
+      gap: 1.2rem;
+    }
+
+    .itemNav {
+      width: 3.5rem;
+      height: 3.5rem;
+      font-size: 1.4rem;
+    }
+  }
+}
+
+/* =========================================================================
+   Responsividade para tela de Desktops
+   ========================================================================= */
+@media (min-width: 1440px) {
+  /* Maximiza as proporções da navegação para telas grandes ou monitores ultrawide */
+  .footerNav {
+    bottom: 2.5rem;
+    padding: 0.7rem 4rem;
+    
+
+    .listNav {
+      gap: 1.5rem;
+    }
+
+    .itemNav {
+      width: 4rem;
+      height: 4rem;
+      font-size: 1.6rem;
+      
+      /* Amplia o movimento de elevação no hover para desktops */
+      &:hover {
+        transform: translateY(-0.3rem);
+      }
+    }
+  }
+}

@@ -1,0 +1,97 @@
+@use "sass:math";
+
+
+// Configura o contêiner fixo no fundo da tela
+.backgroundAnimationContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0; // Mantém a animação atrás de todo o conteúdo
+  overflow: hidden;
+  pointer-events: none; // Fundamental: impede que os ícones bloqueiem os cliques do usuário no site
+}
+
+// Estiliza a base visual do ícone com efeito neon
+.neonIcon {
+  position: absolute;
+  color: #00f3ff; // Define a cor neon (Ciano/Azul claro)
+  opacity: 0.15; // Aplica um tom bem desbotado para não sobrepor visualmente os textos
+  filter: drop-shadow(0 0 8px rgba(0, 243, 255, 0.8)); // Adiciona o brilho neon
+
+  // Executa o loop SCSS para gerar propriedades de tamanho, tempo e posição aleatórias
+  @for $i from 1 through 30 {
+    &.icon-#{$i} {
+      // Define uma posição inicial aleatória na tela
+      left: math.random(100) * 1vw;
+      top: math.random(100) * 1vh;
+
+      // Define um tamanho aleatório (entre 20px e 70px)
+      font-size: math.random(50) + 20 + px;
+
+      // Sorteia uma duração da animação (entre 15s e 35s para manter a suavidade)
+      $duration: math.random(20) + 15 + s;
+
+      // Aplica um atraso negativo para que a animação já comece "andando" no carregamento da página
+      $delay: math.random(15) * -1s;
+
+      // Sorteia uma das 4 rotas de direção possíveis (1 a 4)
+      $animType: math.random(4);
+
+      // Aplica a animação sorteada com o modificador "alternate" (efeito de vai e volta)
+      @if $animType == 1 {
+        animation: floatUpRight $duration ease-in-out infinite alternate $delay;
+      } @else if $animType == 2 {
+        animation: floatDownLeft $duration ease-in-out infinite alternate $delay;
+      } @else if $animType == 3 {
+        animation: floatUpLeft $duration ease-in-out infinite alternate $delay;
+      } @else {
+        animation: floatDownRight $duration ease-in-out infinite alternate $delay;
+      }
+    }
+  }
+}
+
+// --- KEYFRAMES DAS DIREÇÕES ---
+// Configura os movimentos rotacionais e de eixos X e Y para criar a sensação orgânica
+
+// Cria a animação de flutuação para o topo e direita
+@keyframes floatUpRight {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate(30vw, -30vh) rotate(360deg);
+  }
+}
+
+// Cria a animação de flutuação para a base e esquerda
+@keyframes floatDownLeft {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate(-30vw, 30vh) rotate(-360deg);
+  }
+}
+
+// Cria a animação de flutuação para o topo e esquerda
+@keyframes floatUpLeft {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate(-30vw, -30vh) rotate(360deg);
+  }
+}
+
+// Cria a animação de flutuação para a base e direita
+@keyframes floatDownRight {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate(30vw, 30vh) rotate(-360deg);
+  }
+}

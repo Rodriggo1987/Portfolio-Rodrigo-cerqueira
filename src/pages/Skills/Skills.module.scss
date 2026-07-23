@@ -1,0 +1,589 @@
+@use "../../Styles/variaveis.scss" as *;
+
+/* =========================================================================
+   Mobile First - Estilos Gerais da Página de Skills.jsx
+   ========================================================================= */
+
+/* Estrutura o contêiner principal para crescer conforme o conteúdo */
+.Skills {
+  min-height: 100dvh;
+  background-color: $bgPrincipal;
+  padding: 3rem 1rem 6rem 1rem; // Garante espaço no topo e no final
+  position: relative;
+}
+
+/* Protege o conteúdo para ficar acima da animação de fundo */
+.conteudoZIndex {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Estiliza o título principal da página */
+.skillsTitle {
+  font-family: $fontePrincipal;
+  font-size: 2.2rem;
+  color: $branco;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Aplica cor de destaque a elementos textuais */
+.destaque {
+  color: $amareloEscuro;
+}
+
+/* ================== Formação e Idiomas ================== */
+
+/* Organiza o bloco de formação acadêmica */
+.formacao {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  text-align: center;
+
+  .formacaoTitle {
+    font-family: $fonteSecundaria;
+    font-size: 1.4rem;
+    color: $branco;
+    margin-bottom: 0.7rem;
+  }
+
+  .formacaoGrad {
+    font-family: $fonteSecundaria;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  .formacaoUni {
+    color: $branco;
+    font-family: $fonteSecundaria;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+}
+
+/* Alinha os títulos com ícones laterais */
+.icones {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Define a cor padrão e tamanho para os ícones de título */
+.icon {
+  color: $amareloEscuro;
+  font-size: 1.2rem;
+}
+
+/* Organiza o bloco de proficiência em idiomas */
+.idiomas {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 3rem;
+  text-align: center;
+  gap: 0.5rem;
+
+  .idiomasTitle {
+    font-family: $fonteSecundaria;
+    font-size: 1.4rem;
+    color: $branco;
+  }
+
+  .idiomasLingua {
+    color: $branco;
+    font-family: $fonteSecundaria;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0.2rem 0;
+  }
+
+  .idiomaNivel {
+    font-weight: 500;
+    font-size: 1rem;
+  }
+}
+
+/* ================== Soft Skills ================== */
+
+/* Estrutura a seção de habilidades comportamentais */
+.softSkills {
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+.softSkillsTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: $fonteSecundaria;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: $branco;
+
+  .softSkillsTitleIcon {
+    font-size: 1.8rem;
+  }
+}
+
+/* Dispõe os itens de soft skills em formato flexível (quebra de linha automática) */
+.softSkillsList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: $fonteSecundaria;
+}
+
+/* Modela o indicador (bolinha amarela) de cada item na lista */
+.softSkillsListItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: $branco;
+
+  &::before {
+    content: "";
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: $amareloEscuro;
+  }
+}
+
+/* ================== Container Inferior (Hard + Hab Visual) ================== */
+
+/* Mantém os blocos empilhados no mobile */
+.containerHardSkills {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 2rem;
+}
+
+/* Configura o formato de cartão "Glass" para a lista de barras */
+.hardSkills {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem 1.5rem;
+  border-radius: 14px;
+  background: $bgNav;
+  box-shadow: 0 0.3rem 0.3rem rgba(250, 199, 33, 0.12);
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+
+  &:hover {
+    background-color: #131624;
+    box-shadow: 0 1rem 2rem rgba(248, 191, 2, 0.12);
+    transform: scale(1.02);
+  }
+
+  .hardSkillsTitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: $fonteSecundaria;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: $branco;
+  }
+
+  .hardSkillsList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    font-family: $fonteSecundaria;
+  }
+}
+
+/* Estiliza cada item de progresso individual */
+.skill {
+  width: 100%;
+
+  .skillTop {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: $branco;
+  }
+
+  .skillName {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-weight: 600;
+  }
+
+  .skillBar {
+    width: 100%;
+    height: 8px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+  }
+
+  .skillProgress {
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #975f04, #eab308);
+    transition: width 1.2s ease-in-out;
+  }
+}
+
+/* Configura o formato de cartão para as Habilidades em Desenvolvimento */
+.habDesenvContainer {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem 1.5rem;
+  border-radius: 14px;
+  background: $bgNav;
+  box-shadow: 0 0.3rem 0.3rem rgba(250, 199, 33, 0.12);
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3rem;
+
+  &:hover {
+    background-color: #131624;
+    box-shadow: 0 1rem 2rem rgba(248, 191, 2, 0.12);
+    transform: scale(1.02);
+  }
+
+  .habDesenvTitle {
+    font-family: $fonteSecundaria;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: $branco;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+}
+
+/* Posiciona os ícones visuais em grade com quebra automática */
+.techDesenvList {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* Desenha o botão individual das tecnologias */
+.techDesenvListItem {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 0.5rem;
+  border-radius: 12px;
+  background-color: $branco;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+
+  .imgTech {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+  }
+
+  .techDesenvListItemText {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-align: center;
+    color: $bgNav;
+    font-family: $fonteSecundaria;
+    margin: 0;
+  }
+}
+
+/* =========================================================================
+   Responsividade Tablet - Estilos Gerais da Página de Skills.jsx
+   ========================================================================= */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .skillsTitle {
+    font-size: 3rem;
+  }
+
+  .formacao {
+    .formacaoTitle {
+      font-size: 1.8rem;
+    }
+    .formacaoGrad {
+      font-size: 1.6rem;
+    }
+    .formacaoUni {
+      font-size: 1.3rem;
+    }
+  }
+
+  .idiomas {
+    .idiomasTitle {
+      font-size: 1.8rem;
+    }
+    .idiomasLingua {
+      font-size: 1.6rem;
+    }
+  }
+
+  .softSkillsTitle {
+    font-size: 2rem;
+    .softSkillsTitleIcon {
+      font-size: 2.2rem;
+    }
+  }
+
+  .softSkillsListItem {
+    font-size: 1.2rem;
+    gap: 0.8rem;
+    padding: 0.5rem 1rem;
+  }
+
+  /* Dispõe os dois cartões lado a lado no tablet e define altura automática */
+  .containerHardSkills {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 1000px;
+  }
+
+  .hardSkills {
+    width: 50%;
+    max-width: none;
+  }
+
+  .habDesenvContainer {
+    width: 50%;
+    max-width: none;
+    margin-bottom: 8rem;
+  }
+
+  /* Posiciona os ícones visuais em grade com quebra automática */
+  .techDesenvList {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  /* Desenha o botão individual das tecnologias */
+  .techDesenvListItem {
+    width: 90px;
+    padding: 1rem 0.5rem;
+
+    .imgTech {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+
+    .techDesenvListItemText {
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-align: center;
+    }
+  }
+}
+
+/* =========================================================================
+   Responsividade Laptop/Notebook
+   ========================================================================= */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  /* Alinha formação e idiomas lado a lado em telas maiores */
+  .conteudoZIndex {
+    gap: 2rem;
+  }
+
+  .skillsTitle {
+    font-size: 3.5rem;
+  }
+
+  .secaoFormacoesIdiomas {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 70%;
+    margin-bottom: 2rem;
+
+    .formacao,
+    .idiomas {
+      margin-bottom: 0;
+    }
+
+    .idiomasLingua {
+      margin: 0;
+    }
+  }
+
+  .softSkillsList {
+    gap: 2rem;
+  }
+
+  .softSkillsListItem {
+    font-size: 1.3rem;
+  }
+
+  /* Mantém o grid lado a lado para telas grandes e otimiza espaço interno */
+  .containerHardSkills {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    gap: 3rem;
+    max-width: 1000px;
+    max-height: 900px;
+    margin: 2rem 0 5rem 0;
+  }
+
+  .hardSkills {
+    width: 50%;
+    max-width: none;
+    padding: 3rem 2.5rem;
+  }
+
+  .habDesenvContainer {
+    width: 50%;
+    max-width: none;
+    margin-bottom: 0;
+  }
+
+  .techDesenv {
+    height: 70vh;
+    padding: 2rem 0 0 0;
+  }
+
+  /* Desenha o botão individual das tecnologias */
+  .techDesenvListItem {
+    width: 100px;
+    padding: 1rem 0.5rem;
+
+    .imgTech {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+
+    .techDesenvListItemText {
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-align: center;
+    }
+  }
+}
+
+/* =========================================================================
+   Responsividade para tela de Desktops
+   ========================================================================= */
+@media (min-width: 1440px) {
+  /* Maximiza espaçamentos e fontes para monitores ultrawide */
+ .conteudoZIndex {
+    gap: 2rem;
+  }
+
+  .skillsTitle {
+    font-size: 3.5rem;
+  }
+
+  .secaoFormacoesIdiomas {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 70%;
+    margin-bottom: 2rem;
+
+    .formacao,
+    .idiomas {
+      margin-bottom: 0;
+    }
+
+    .idiomasLingua {
+      margin: 0;
+    }
+  }
+
+  .softSkillsList {
+    gap: 2rem;
+  }
+
+  .softSkillsListItem {
+    font-size: 1.3rem;
+  }
+
+  /* Mantém o grid lado a lado para telas grandes e otimiza espaço interno */
+  .containerHardSkills {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    gap: 3rem;
+    max-width: 1000px;
+    max-height: 900px;
+    margin: 2rem 0 5rem 0;
+  }
+
+  .hardSkills {
+    width: 50%;
+    max-width: none;
+    padding: 3rem 2.5rem;
+  }
+
+  .habDesenvContainer {
+    width: 50%;
+    max-width: none;
+    margin-bottom: 0;
+  }
+
+  .techDesenv {
+    height: 70vh;
+    padding: 2rem 0 0 0;
+  }
+
+  /* Desenha o botão individual das tecnologias */
+  .techDesenvListItem {
+    width: 100px;
+    padding: 1rem 0.5rem;
+
+    .imgTech {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+
+    .techDesenvListItemText {
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-align: center;
+    }
+  }
+}

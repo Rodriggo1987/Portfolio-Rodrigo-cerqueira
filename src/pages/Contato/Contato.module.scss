@@ -1,0 +1,434 @@
+@use "../../Styles/variaveis.scss" as *;
+
+/* =========================================================================
+   Mobile First - Estilos Gerais da Página de Contato
+   ========================================================================= */
+
+/* Estrutura principal cobrindo toda a tela */
+.contatoSection {
+  background-color: $bgPrincipal;
+  min-height: 95dvh;
+  position: relative;
+  padding: 3rem 1rem 6rem 1rem;
+}
+
+/* Protege o conteúdo sobre a animação de fundo */
+.conteudoZIndex {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Container flexível para organizar textos de um lado e form do outro (em telas maiores) */
+.layoutGrid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+/* ================= Lado Esquerdo (Informações) ================= */
+
+.infoContato {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+.divTitle {
+  margin-bottom: 2rem;
+
+  .title {
+    color: $branco;
+    font-family: $fontePrincipal;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+
+    .destaque {
+      color: $amareloEscuro;
+    }
+  }
+
+  .titleText {
+    color: $branco;
+    font-family: $fonteSecundaria;
+    font-size: 0.95rem; /* Ajustado para melhor legibilidade no mobile */
+    line-height: 1.5;
+    padding: 1rem;
+  }
+}
+
+/* Redes Sociais */
+.redesSociais {
+  width: 100%;
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+
+.redesSociaisList {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0;
+  list-style: none;
+}
+
+.redesSociaisListItem {
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  .redesSociaisIcon {
+    font-size: 4rem;
+    color: $branco;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $amareloEscuro;
+    }
+  }
+}
+
+/* Contatos Diretos (Email, Whats, Endereço) */
+.contatosDiretos {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-style: normal;
+  width: 100%;
+}
+
+.contatoItem {
+  display: flex;
+  justify-content: center;
+}
+
+.contatoLink {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: $branco;
+  font-family: $fonteSecundaria;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: color 0.3s;
+
+  &:hover {
+    color: $amareloClaro;
+  }
+}
+
+.contatoIcon {
+  color: $amareloEscuro;
+  font-size: 1.8rem;
+}
+
+/* ================= Lado Direito (Formulário) ================= */
+
+/* Conforme solicitado, o formulário fica oculto no mobile/tablet */
+.formsContainer {
+  display: none;
+  width: 100%;
+  max-width: 500px;
+}
+
+/* =========================================================================
+   Responsividade Tablet
+   ========================================================================= */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .contatoSection {
+    min-height: 90dvh;
+  }
+
+  .divTitle {
+    .title {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+    }
+    .titleText {
+      font-size: 1.5rem;
+    }
+  }
+
+  .infoContato {
+    max-width: 700px;
+  }
+
+  .redesSociaisList {
+    gap: 3rem;
+  }
+
+  .redesSociaisListItem {
+    margin-bottom: 1rem;
+    .redesSociaisIcon {
+      font-size: 8rem;
+    }
+  }
+
+  .contatoLink {
+    font-size: 1.5rem;
+  }
+
+  .contatoIcon {
+    font-size: 2.5rem;
+  }
+}
+
+/* =========================================================================
+   Responsividade Laptop/Notebook (Aparece o formulário)
+   ========================================================================= */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .contatoSection {
+    padding: 2.5rem 2rem 6rem 2rem;
+  }
+
+  /* Divide a tela em duas colunas */
+  .layoutGrid {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 4rem;
+    padding: 3rem 2rem 3.8rem 2rem;
+  }
+
+  /* Alinha os textos à esquerda para compor melhor com o form na direita */
+  .infoContato {
+    align-items: flex-start;
+    text-align: left;
+    width: 45%;
+  }
+
+  .divTitle {
+    .title {
+      font-size: 2.5rem;
+    }
+    .titleText {
+      font-size: 1rem;
+      padding: 0;
+    }
+  }
+
+  .redesSociais {
+    padding: 0;
+  }
+
+  .redesSociaisList {
+    justify-content: flex-start;
+  }
+
+  .contatosDiretos {
+    align-items: flex-start;
+  }
+
+  .contatoItem {
+    justify-content: flex-start;
+  }
+
+  /* Exibe e estiliza o formulário */
+  .formsContainer {
+    display: block;
+    width: 50%;
+    background-color: $bgNav;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  }
+
+  .formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    label {
+      font-family: $fonteSecundaria;
+      color: $branco;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background-color: #131624;
+      color: $branco;
+      font-family: $fonteSecundaria;
+      outline: none;
+      transition: border-color 0.3s;
+
+      &:focus {
+        border-color: $amareloEscuro;
+      }
+
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.4);
+      }
+    }
+
+    textarea {
+      resize: vertical;
+    }
+  }
+
+  .botao {
+    margin-top: 0.5rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: $amareloEscuro;
+    color: $bgPrincipal;
+    font-family: $fonteSecundaria;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+      background-color 0.3s,
+      transform 0.2s;
+
+    &:hover {
+      background-color: $amareloClaro;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+/* =========================================================================
+   Responsividade para tela de Desktops
+   ========================================================================= */
+@media (min-width: 1440px) {
+  .contatoSection {
+    padding: 2.5rem 2rem 6rem 2rem;
+  }
+
+  /* Divide a tela em duas colunas */
+  .layoutGrid {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 4rem;
+    padding: 3rem 2rem 3.8rem 2rem;
+  }
+
+  /* Alinha os textos à esquerda para compor melhor com o form na direita */
+  .infoContato {
+    align-items: flex-start;
+    text-align: left;
+    width: 45%;
+  }
+
+  .divTitle {
+    .title {
+      font-size: 2.5rem;
+    }
+    .titleText {
+      font-size: 1rem;
+      padding: 0;
+    }
+  }
+
+  .redesSociais {
+    padding: 0;
+  }
+
+  .redesSociaisList {
+    justify-content: flex-start;
+  }
+
+  .contatosDiretos {
+    align-items: flex-start;
+  }
+
+  .contatoItem {
+    justify-content: flex-start;
+  }
+
+  /* Exibe e estiliza o formulário */
+  .formsContainer {
+    display: block;
+    width: 50%;
+    background-color: $bgNav;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  }
+
+  .formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    label {
+      font-family: $fonteSecundaria;
+      color: $branco;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background-color: #131624;
+      color: $branco;
+      font-family: $fonteSecundaria;
+      outline: none;
+      transition: border-color 0.3s;
+
+      &:focus {
+        border-color: $amareloEscuro;
+      }
+
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.4);
+      }
+    }
+
+    textarea {
+      resize: vertical;
+    }
+  }
+
+  .botao {
+    margin-top: 0.5rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: $amareloEscuro;
+    color: $bgPrincipal;
+    font-family: $fonteSecundaria;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+      background-color 0.3s,
+      transform 0.2s;
+
+    &:hover {
+      background-color: $amareloClaro;
+      transform: translateY(-2px);
+    }
+  }
+}

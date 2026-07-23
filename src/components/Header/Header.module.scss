@@ -1,0 +1,125 @@
+@use "../../Styles/variaveis.scss" as *;
+
+/* =========================================================================
+   Mobile First - Estilos Gerais da Página de Header
+   ========================================================================= */
+
+/* Estiliza o contêiner principal do cabeçalho */
+.secaoHeader {
+  background-color: $bgPrincipal;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  z-index: 9999;
+
+  /* Alinha os itens do contêiner de status */
+  .statusContainer {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.6rem 1rem;
+  }
+
+  /* Formata o link "Open to work" */
+  .openWork {
+    border: none;
+    color: $branco;
+    font-family: $fonteSecundaria;
+    font-size: 1rem;
+    font-weight: 900;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  /* Configura o indicador de pulso verde */
+  .pulseDot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #22c55e;
+    box-shadow: 0 0 0 rgba(34, 197, 94, 0.7);
+    
+    /* Executa a animação de forma infinita */
+    animation: pulseGreen 1.5s infinite;
+  }
+
+  /* Cria a transição de escala e opacidade para o efeito de pulso */
+  @keyframes pulseGreen {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+    }
+    70% {
+      transform: scale(1.2);
+      box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+    }
+  }
+
+  /* Estiliza o botão responsável pelo download do currículo */
+  .buttonCurriculo {
+    background-color: $amareloEscuro;
+    padding: 0.8rem 1.1rem;
+    border-radius: 2rem;
+    font-family: $fonteSecundaria;
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: $bgPrincipal;
+    text-decoration: none;
+    transition: 0.3s ease;
+
+    /* Aplica efeito de elevação e mudança de cor ao passar o mouse */
+    &:hover {
+      background: $amareloClaro;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+/* =========================================================================
+   Responsividade Tablet - Estilos Gerais da Página de Header
+   ========================================================================= */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Adapta a altura e o padding para tablets */
+  .secaoHeader {
+    height: 12vh;
+    padding: 1.5rem 2rem;
+
+    /* Aumenta a fonte do status de trabalho */
+    .openWork {
+      font-size: 1.3rem;
+    }
+
+    /* Ajusta o tamanho do botão e do texto de download */
+    .buttonCurriculo {
+      padding: 0.8rem 1.5rem;
+      font-size: 1.3rem;
+    }
+  }
+}
+
+/* =========================================================================
+   Responsividade Laptop/Notebook
+   ========================================================================= */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  /* Aumenta o respiro lateral em telas médias */
+  .secaoHeader {
+    padding: 3rem 4rem;
+  }
+}
+
+/* =========================================================================
+   Responsividade para tela de Desktops
+   ========================================================================= */
+@media (min-width: 1440px) {
+  /* Maximiza as margens internas para telas grandes ou ultrawide */
+  .secaoHeader {
+    padding: 4rem 6rem;
+  }
+}
