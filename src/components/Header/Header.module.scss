@@ -23,11 +23,13 @@
   }
 
   /* Formata o link "Open to work" */
+
   .openWork {
     border: none;
     color: $branco;
     font-family: $fonteSecundaria;
-    font-size: 1rem;
+    font-size: 0.8rem;
+    //font-size: 1rem;
     font-weight: 900;
     cursor: pointer;
     text-decoration: none;

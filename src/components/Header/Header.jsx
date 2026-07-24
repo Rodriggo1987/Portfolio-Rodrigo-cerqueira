@@ -20,7 +20,7 @@ export default function Header() {
           className={Styles.openWork}
           aria-label="Status: Aberto para trabalho. Entrar em contato via WhatsApp"
         >
-          Open to work
+          Available for Freelance
         </a>
       </div>
 
