@@ -26,7 +26,7 @@ export default function Header() {
 
       {/* Disponibiliza o currículo para download direto */}
       <a
-        href="/curriculo/curriculo_2025.pdf"
+        href="/curriculo/CurriculoRodrigoNascimento.pdf"
         download
         className={Styles.buttonCurriculo}
         aria-label="Fazer o download do currículo em formato PDF"
